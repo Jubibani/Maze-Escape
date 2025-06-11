@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="The-Maze-Escape"
-run/main_scene="uid://x0tpvvin5eww"
+config/name="The-Maze-Escape-Lesson-Project"
+run/main_scene="uid://dh257rmv8o3x1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="The-Maze-Escape-Lesson-Project"
 
 [rendering]
 
