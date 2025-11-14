@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2qd5ps2uilnf"]
+
+[ext_resource type="Texture2D" uid="uid://dnawavu2qngh3" path="res://scarab-key.png" id="1_g3pn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2doog"]
+size = Vector2(40.5, 65.5)
+
+[node name="Key" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44, 40)
+shape = SubResource("RectangleShape2D_2doog")
+
+[node name="Scarab-key" type="Sprite2D" parent="."]
+position = Vector2(44, 36)
+scale = Vector2(0.272024, 0.2905)
+texture = ExtResource("1_g3pn5")

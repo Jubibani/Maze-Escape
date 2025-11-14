@@ -1,8 +1,10 @@
+
 extends CharacterBody2D
 
 
 var SPEED = 300;
 var dash_power = 3000;
+var can_dash : bool = false;
 
 func _physics_process(delta: float) -> void:
 	
@@ -17,8 +19,10 @@ func _physics_process(delta: float) -> void:
 	velocity = combine_direction * SPEED
 	
 	#tell the player to listen for our signal to dash
-	if Input.is_action_just_pressed("go_dash"):
+	if can_dash and Input.is_action_just_pressed("go_dash"):
 		dash_move()
+		
+		can_dash = false
 	
 	#magic word
 	move_and_slide()
