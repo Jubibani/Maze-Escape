@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dh257rmv8o3x1"]
+[gd_scene load_steps=29 format=4 uid="uid://dh257rmv8o3x1"]
 
 [ext_resource type="Texture2D" uid="uid://le16srm02ef7" path="res://Tilemap/sand_packed.png" id="1_jjmw5"]
 [ext_resource type="Texture2D" uid="uid://bbnypgpi0tvmt" path="res://Tilemap/stone_packed.png" id="2_pohsh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bys1t8ry6a83f" path="res://Player/player.gd" id="12_pohsh"]
 [ext_resource type="PackedScene" uid="uid://bo3r27x5g8g1t" path="res://Collectibles/water.tscn" id="13_02g5w"]
 [ext_resource type="PackedScene" uid="uid://b2qd5ps2uilnf" path="res://Collectibles/key.tscn" id="14_j0eqb"]
+[ext_resource type="Script" uid="uid://bdq1w5u7dbrok" path="res://Scenes/door.gd" id="15_kmj4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mobfr"]
 texture = ExtResource("1_jjmw5")
@@ -286,6 +287,9 @@ sources/6 = SubResource("TileSetAtlasSource_pcyng")
 sources/7 = SubResource("TileSetAtlasSource_jcfro")
 sources/8 = SubResource("TileSetAtlasSource_tjl77")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0eqb"]
+size = Vector2(98, 44)
+
 [node name="Level_1_Maze" type="Node2D"]
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -297,7 +301,7 @@ tile_map_data = PackedByteArray("AAAUABgAAAADAAcAAAAUABkAAAADAAgAAAAUABoAAAADAAk
 tile_set = SubResource("TileSet_u2muw")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("11_d0ika")]
-position = Vector2(522, 353)
+position = Vector2(571, 305)
 script = ExtResource("12_pohsh")
 
 [node name="Water" parent="." instance=ExtResource("13_02g5w")]
@@ -316,3 +320,12 @@ position = Vector2(663, 411)
 position = Vector2(111, 366)
 
 [node name="Key" parent="." instance=ExtResource("14_j0eqb")]
+
+[node name="door" type="Area2D" parent="."]
+script = ExtResource("15_kmj4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+position = Vector2(895, 22)
+shape = SubResource("RectangleShape2D_j0eqb")
+
+[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

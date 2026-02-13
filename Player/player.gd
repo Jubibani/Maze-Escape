@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 var SPEED = 300;
 var dash_power = 3000;
+var have_key: bool = false;
 var can_dash : bool = false;
 
 func _physics_process(delta: float) -> void:

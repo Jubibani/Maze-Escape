@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://j48k4v7yox41"]
+
+[ext_resource type="PackedScene" uid="uid://nj8xs4ten8vx" path="res://Player/player.tscn" id="1_jhhak"]
+[ext_resource type="Script" uid="uid://bys1t8ry6a83f" path="res://Player/player.gd" id="2_wcgph"]
+
+[node name="level_2_maze" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 516.0
+offset_top = 312.0
+offset_right = 556.0
+offset_bottom = 335.0
+text = "Level 2 Maze Scene"
+
+[node name="Player" parent="." instance=ExtResource("1_jhhak")]
+position = Vector2(574, 250)
+script = ExtResource("2_wcgph")
